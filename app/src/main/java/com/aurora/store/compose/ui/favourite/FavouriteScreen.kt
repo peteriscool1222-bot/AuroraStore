@@ -253,7 +253,7 @@ private fun ScreenContent(
                                 }
                                 items(
                                     count = favourites.itemCount,
-                                    key = favourites.itemKey { it.packageName }
+                                    key = { index -> "${favourites.peek(index)?.packageName}-$index" }
                                 ) { index ->
                                     favourites[index]?.let { favourite ->
                                         FavouriteListItem(

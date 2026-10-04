@@ -138,7 +138,7 @@ private fun ScreenContent(
                             ) {
                                 items(
                                     count = apps.itemCount,
-                                    key = apps.itemKey { it.packageName }
+                                    key = { index -> "${apps.peek(index)?.packageName}-$index" }
                                 ) { index ->
                                     apps[index]?.let { app ->
                                         val meta = metadata[app.packageName]

@@ -210,7 +210,7 @@ private fun ScreenContent(
                             ) {
                                 items(
                                     count = downloads.itemCount,
-                                    key = downloads.itemKey { it.packageName }
+                                    key = { index -> "${downloads.peek(index)?.packageName}-$index" }
                                 ) { index ->
                                     downloads[index]?.let { download ->
                                         DownloadListItem(

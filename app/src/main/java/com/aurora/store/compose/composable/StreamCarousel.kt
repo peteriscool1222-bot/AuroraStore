@@ -163,7 +163,7 @@ internal fun ClusterRow(
     ) {
         itemsIndexed(
             items = cluster.clusterAppList,
-            key = { _, app -> app.packageName }
+            key = { index, app -> "${app.packageName}-$index" }
         ) { _, app ->
             AppListItem(
                 app = app,

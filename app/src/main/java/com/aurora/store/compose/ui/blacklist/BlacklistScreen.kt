@@ -321,7 +321,7 @@ private fun ScreenContent(
                             }
                         }
                         items(items = selectedPackages, key = { p ->
-                            p.packageName.hashCode()
+                            "selected-${p.packageName}-${selectedPackages.indexOf(p)}"
                         }) { pkg -> BlacklistRow(pkg) }
                     }
 
@@ -336,7 +336,7 @@ private fun ScreenContent(
                             }
                         }
                         items(items = otherPackages, key = { p ->
-                            p.packageName.hashCode()
+                            "other-${p.packageName}-${otherPackages.indexOf(p)}"
                         }) { pkg -> BlacklistRow(pkg) }
                     }
                 }
