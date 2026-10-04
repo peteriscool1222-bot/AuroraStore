@@ -1,4 +1,32 @@
-# Aurora Store
+# Aurora Store (Custom Fork)
+
+> **This is a community fork of [upstream Aurora Store](https://github.com/whyorean/AuroraStore) with bug fixes.**
+
+## Download
+
+Grab the latest signed release APK from the [Releases](../../releases) page of this repository.
+
+## Fixes in this fork
+
+- **Fixed a crash when browsing lists** (`java.lang.IllegalArgumentException: Key ... was already used`) caused by duplicate app package names in Jetpack Compose lists. Custom list keys now include each item's index, so duplicate entries (e.g. `com.epicoro.castleclashers` appearing in multiple rows) no longer crash the app.
+  - Affected files patched:
+    - `InstalledScreen.kt`
+    - `DownloadsScreen.kt`
+    - `FavouriteScreen.kt`
+    - `BlacklistScreen.kt`
+    - `StreamCarousel.kt`
+
+## Building
+
+```bash
+./gradlew assembleVanillaRelease
+```
+
+Requires JDK 21 and the Android SDK. Output APK: `app/build/outputs/apk/vanilla/release/app-vanilla-release.apk`.
+
+---
+
+# Upstream README
 
 Aurora Store enables you to search and download apps from the official Google Play store. You can check app descriptions, screenshots, updates, reviews, and download the APK directly from Google Play to your device. 
 
